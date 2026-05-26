@@ -9,7 +9,7 @@ const footerLinks = [
 ]
 
 const safetyPartners = [
-  { src: "/Gambling_Commission_logo.png", alt: "Gambling Commission", href: "https://www.gamblingcommission.gov.uk/", darkBg: true },
+  { src: "/commission.png", alt: "Gambling Commission", href: "https://www.gamblingcommission.gov.uk/", darkBg: true },
   { src: "/gamble-aware.png", alt: "BeGambleAware", href: "https://www.begambleaware.org/", darkBg: true },
 { src: "/gamcare.png", alt: "GamCare", href: "https://www.gamcare.org.uk/", darkBg: true },
   { src: "/gordon.png", alt: "Gordon Moody Association", href: "https://gordonmoody.org.uk/", darkBg: true },
