@@ -246,14 +246,19 @@ export default function ResponsibleGamblingPage() {
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
             {supportOrgs.map((org) => (
-              <a
+              <div
                 key={org.name}
-                href={org.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group bg-card border border-border p-5 flex flex-col gap-2 hover:border-primary/40 transition-colors card-hover"
-                aria-label={`Visit ${org.name} at ${org.display} — opens in new tab`}
+                className="group relative bg-card border border-border p-5 flex flex-col gap-2 hover:border-primary/40 transition-colors card-hover"
               >
+                <a
+                  href={org.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 z-0"
+                  aria-label={`Visit ${org.name} at ${org.display} — opens in new tab`}
+                >
+                  <span className="sr-only">Visit {org.name}</span>
+                </a>
                 <div className="flex items-start justify-between gap-2">
                   <span className="font-heading font-bold text-foreground text-sm uppercase tracking-tight">{org.name}</span>
                   <ExternalLink className="w-3.5 h-3.5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" aria-hidden="true" />
@@ -263,15 +268,14 @@ export default function ResponsibleGamblingPage() {
                 {org.phone && (
                   <a
                     href={`tel:${org.phone.replace(/\s/g, "")}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-heading font-bold text-primary mt-1"
-                    onClick={(e) => e.stopPropagation()}
+                    className="relative z-10 inline-flex items-center gap-1.5 text-xs font-heading font-bold text-primary mt-1 w-fit"
                     aria-label={`Call ${org.name} on ${org.phone}`}
                   >
                     <Phone className="w-3 h-3" aria-hidden="true" />
                     {org.phone}
                   </a>
                 )}
-              </a>
+              </div>
             ))}
           </div>
         </section>
