@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ── British Elite Betting Sites — light strict sports theme ── */
+    --background:        214  20%  96%;   /* #f0f2f5 — cool light grey */
+    --foreground:        218  30%  12%;   /* #131b2b — deep navy-black */
+
+    --card:              0    0%  100%;   /* #ffffff — sharp white cards */
+    --card-foreground:   218  30%  12%;
+
+    --popover:           0    0%  100%;
+    --popover-foreground: 218  30%  12%;
+
+    --surface:           214  18%  92%;   /* #e4e8ef — elevated panel */
+
+    /* Royal blue — primary brand */
+    --primary:           220  90%  48%;   /* #1a56e0 */
+    --primary-foreground: 0    0%  100%;
+
+    /* Steel grey — secondary */
+    --secondary:         214  18%  88%;
+    --secondary-foreground: 218  20%  30%;
+
+    --muted:             214  16%  90%;
+    --muted-foreground:  218  12%  50%;
+
+    /* Electric amber — accent score / CTA */
+    --accent:            33   96%  52%;   /* #f59d0e */
+    --accent-foreground: 218  30%  12%;
+
+    /* Deep navy — header / footer */
+    --navy:              220  55%  10%;   /* #0a1020 */
+    --navy-foreground:   210  22%  90%;
+
+    /* Danger */
+    --destructive:       0    72%  52%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border:            214  18%  84%;   /* #ced4de — crisp border */
+    --input:             214  18%  84%;
+    --ring:              220  90%  48%;
+    --radius:            0.5rem;          /* sharper corners */
+
+    /* Live / verified green */
+    --live:              148  68%  38%;
+    --live-foreground:   0    0%  100%;
+
+    /* Score highlight */
+    --highlight:         33   96%  52%;
+    --highlight-foreground: 218  30%  12%;
+  }
+}
+
+@layer base {
+  * { @apply border-border box-border; }
+  body { @apply bg-background text-foreground; }
+  h1, h2, h3, h4 { @apply font-heading; }
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Sharp rank #1 card border ── */
+.rank-1-glow {
+  box-shadow:
+    0 0 0 2px hsl(220 90% 48% / 0.5),
+    0 4px 24px hsl(220 90% 48% / 0.08);
+}
+
+/* ── Card hover lift — crisp ── */
+.card-hover {
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.card-hover:hover {
+  box-shadow: 0 4px 20px hsl(218 30% 12% / 0.08);
+  transform: translateY(-1px);
+}
+
+/* ── Section backgrounds ── */
+.section-light   { background: hsl(var(--background)); }
+.section-card    { background: hsl(var(--card)); }
+.section-surface { background: hsl(var(--surface)); }
+
+/* ── Strict sport grid overlay ── */
+.section-sport {
+  position: relative;
+  overflow: hidden;
+}
+.section-sport::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(hsl(220 90% 48% / 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(220 90% 48% / 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+.section-sport > * { position: relative; z-index: 1; }
+
+/* ── Sport hero — full-bleed dark overlay with real photo ── */
+.hero-sport {
+  position: relative;
+  background: hsl(220 55% 10%);
+  overflow: hidden;
+}
+.hero-sport > * { position: relative; z-index: 1; }
+
+/* ── Section divider ── */
+.site-divider {
+  border-color: hsl(214 18% 84%);
+}
+
+/* ── Rank badge — strict circle ── */
+.rank-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 4px;
+  font-weight: 800;
+  font-size: 0.875rem;
+  background: hsl(var(--primary));
+  color: hsl(0 0% 100%);
+  flex-shrink: 0;
+  font-family: var(--font-barlow-condensed);
+}
+.rank-badge.rank-2 {
+  background: hsl(214 18% 60%);
+}
+.rank-badge.rank-3 {
+  background: hsl(33 96% 52%);
+  color: hsl(218 30% 12%);
+}
+
+/* ── CTA stripe button ── */
+.cta-badge {
+  background: hsl(220 90% 48%);
+  color: hsl(0 0% 100%);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── Score accent ── */
+.score-orange {
+  color: hsl(var(--accent));
+}
+
+/* ── Sport stripe — left border accent ── */
+.stripe-left {
+  border-left: 3px solid hsl(var(--primary));
+}
+.stripe-left-accent {
+  border-left: 3px solid hsl(var(--accent));
+}
+
+/* ── Uppercase label ── */
+.label-caps {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-family: var(--font-barlow-condensed);
+}
